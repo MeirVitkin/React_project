@@ -2,48 +2,58 @@ import DisplayBook from './component/book';
 import './App.css';
 
 
- const books =[
+const books = [
   {
     title: "מעשה בחמישה בלונים",
     author: "someone",
+    sample:"this is an owsome book",
     likes: 90,
-    onshelf: false
-   },
-   {
+    onshelf: true
+  },
+  {
     title: "עמי ותמי",
     author: "sometwo",
+    sample:" it is good to read this book",
     likes: 85,
     onshelf: false
-   },
-   {
+  },
+  {
     title: "סינדרלה",
-    author: "somethird",
+    author: "Moshe Adar",
+    sample:" i think it is good to read this book",
     likes: 80,
-    onshelf: false
-   }
+    onshelf: true
+  },
+  {
+    title: "pinokio",
+    author: "Meir vitkin",
+    sample:"never give up on this book",
+    likes: 80,
+    onshelf: true
+  }
 ]
+function setOnshelf(book){
+  book.onshelf=false;
+}
 
 function App() {
   return (
     <div className="App">
       <h1> library</h1>
-      <div className='container'><DisplayBook
-       title={books[0].title} 
-       author ={books[0].author} 
-       likes={books[0].likes} />
-    </div>
-    <div className='container'>
-      <DisplayBook 
-      title={books[1].title} 
-      author ={books[1].author} 
-      likes={books[1].likes} />
-    </div>
-    <div className="container">
-      <DisplayBook 
-      title={books[2].title} 
-      author ={books[2].author}
-      likes={books[2].likes} />
-    </div>
+      {books.map((book, idx) => (
+        <div className="container">
+          <DisplayBook
+            key={idx}
+            title={book.title}
+            author={book.author}
+            likes={book.likes}
+            onshelf={book.onshelf}
+            sample={book.sample}
+            setOnshelf={setOnshelf}
+            book={book}
+          />
+        </div>
+      ))}
     </div>
   );
 }
