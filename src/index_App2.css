@@ -1,0 +1,35 @@
+body{
+    text-align: center;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+    min-height: 200px;
+    background-color: aqua;
+}
+.screen{
+    min-width: 300px;
+    height: 200px;
+    margin: 10px;
+    background-color: rgb(85, 131, 131);
+}
+.keyboard{
+    display: grid;
+    grid-template-columns: repeat(10, 30px);
+    gap: 7px;
+
+}
+.key
+{
+    
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 10px;
+    background-color: white;
+}

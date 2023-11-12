@@ -13,6 +13,6 @@ const ReadButton = ({ showP,sample }) => {
 const TakeButton = ({ setOnshelf,book }) => {
     
 
-    return <button onClick={()=>setOnshelf(book)}>Take</button>
+    return <button onClick={()=>setOnshelf(book)}>{book.onshelf ? 'Take' : 'Return'}</button>
 }
 export {LikeButton,ReadButton,TakeButton} ;

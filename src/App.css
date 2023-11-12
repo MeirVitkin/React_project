@@ -8,10 +8,8 @@
   ;
 }
 .container{
-  min-width: 500px;
-  max-width: 600px;
-  min-height: 200px;
-  max-height: 300px;
+  width: 350px;
+  height: 400px;
   background-color: rgb(234, 203, 157);
   border: 5px solid rgb(110, 78, 78);
 

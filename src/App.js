@@ -7,6 +7,7 @@ const books = [
     title: "מעשה בחמישה בלונים",
     author: "someone",
     sample:"this is an owsome book",
+    serialNumber: "0257461",
     likes: 90,
     onshelf: true
   },
@@ -14,6 +15,7 @@ const books = [
     title: "עמי ותמי",
     author: "sometwo",
     sample:" it is good to read this book",
+    serialNumber: "0257462",
     likes: 85,
     onshelf: false
   },
@@ -21,6 +23,7 @@ const books = [
     title: "סינדרלה",
     author: "Moshe Adar",
     sample:" i think it is good to read this book",
+    serialNumber: "0257463",
     likes: 80,
     onshelf: true
   },
@@ -28,26 +31,22 @@ const books = [
     title: "pinokio",
     author: "Meir vitkin",
     sample:"never give up on this book",
+    serialNumber: "0257464",
     likes: 80,
     onshelf: true
   }
 ]
 function setOnshelf(book){
-  book.onshelf=false;
+ {book.onshelf ? book.onshelf= false : book.onshelf = true} ;
 }
 
 function App() {
   return (
     <div className="App">
       <h1> library</h1>
-      {books.map((book, idx) => (
-        <div className="container">
+      {books.map((book, i) => (
+        <div className="container" key={i}>
           <DisplayBook
-            key={idx}
-            title={book.title}
-            author={book.author}
-            likes={book.likes}
-            onshelf={book.onshelf}
             sample={book.sample}
             setOnshelf={setOnshelf}
             book={book}
