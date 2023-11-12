@@ -1,13 +1,11 @@
 import Keyboard from "./keyboard"
 import Screen from "./csreen";
-function Computer(){
+function Computer({child1, child2}){
     return(
         <main>
             <h1>Computer</h1>
-            <Screen/>
-            <Keyboard
-             />
-
+            {child1}
+            {child2}
         </main>
     )
 }
