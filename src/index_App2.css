@@ -1,58 +1,99 @@
-body{
-    text-align: center;
+body {
+    font-family: Arial, Helvetica, sans-serif;
 }
-main{
+
+main {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 50px;
     min-width: 300px;
     min-height: 200px;
-    background-color: aqua;
+    background-color: rgb(194, 191, 191);
 }
-.screen{
-    min-width: 300px;
+
+.screen {
+    padding: 10px;
+    min-width: 500px;
     height: 200px;
     margin: 10px;
-    background-color: rgb(85, 131, 131);
+    background-color: rgb(231, 241, 241);
+    border-radius: 5%;
 }
-.keyboard{
-    display: grid;
-    grid-template-columns: repeat(10, 30px);
-    gap: 7px;
 
+.keyboard {
+    display: grid;
+    grid-template-columns: repeat(10, 40px);
+    gap: 7px;
 }
-.key
-{
+
+.key {
     display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: center;
     width: 30px;
     height: 30px;
     text-align: center;
     border: 1px solid black;
     border-radius: 10px;
     margin: 10px;
-    background-color: white;
+    background-color: rgb(138, 137, 136);
+    color: aliceblue;
+    cursor: pointer;
 }
-.space{
-    width: 141px;
+
+.key:active {
+    transform: translateY(2px);
+}
+
+.key:hover {
+    background-color: aliceblue;
+    color: rgb(138, 137, 136);
+
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between
+}
+
+.space {
+    font-size: 23px;
+    width: 80px;
     height: 30px;
     text-align: center;
     border: 1px solid black;
     border-radius: 10px;
-    margin: 10px;
     background-color: white;
-    font-size: 25px;
 }
-.delete{
-    width: 30px;
+
+.delete {
+    font-size: 23px;
+    width: 80px;
     height: 30px;
-    gap: 60px;
     text-align: center;
     border: 1px solid black;
     border-radius: 10px;
-    margin: 10px;
-    background-color: white;
-    
+    background-color: rgb(245, 188, 188);
+}
+
+.language-toggle {
+    font-size: 23px;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: rgb(188, 188, 223);
+}
+
+.clearButton {
+    font-size: 23px;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: rgb(211, 230, 212);
 }
