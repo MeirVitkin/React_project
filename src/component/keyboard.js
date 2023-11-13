@@ -1,11 +1,7 @@
 
 import{ useState } from "react";
 
-function showLeter(e){
-    console.log(e.target.innerText);
-}
-
-function Keyboard(){
+function Keyboard({ showLetter, deleteLastLetter, clearScreen,toggleColor,isRed }){
 const englishKeys = [
     'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P',
     'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L',
@@ -15,28 +11,35 @@ const hebrewKeys = [
     ];
     const [isHebrew, setIsHebrew] = useState(false);
     const keys = isHebrew ? hebrewKeys : englishKeys;
+    
 
     const toggleLanguage = () => {
         setIsHebrew(!isHebrew);
     };
+
     return(
         <div>
             <div className="keyboard">
                 {keys.map((key,index)=>{
                     return(   
-                        <div className="key" key={index} onClick={showLeter}>
+                        <div className="key" key={index} onClick={()=>showLetter(key)}>
                             {key}
                         </div>
                     )
                 })}
+            </div>
               
                 
 
-            <div className ="space" onClick={showLeter}> </div>
+            <div className="buttons">
+                    <div className="delete" onClick={() => deleteLastLetter()}>Delete</div>
+                    <div className="language-toggle" onClick={toggleLanguage}>
+                        {isHebrew ? 'English' : 'עברית'}</div>
+                    <div className= "space" onClick={() => showLetter(' ')}>space</div>
+                    <div className="color-toggle" onClick={toggleColor}>
+                        {isRed ? 'Black' :'Red'}</div>
+                    <button className="clearButton" onClick={clearScreen}>Clear</button>
             </div>
-                <div className="space" onClick={toggleLanguage}>
-                    {isHebrew ? 'English' : 'עברית'}
-                </div>
 
         </div>
     )

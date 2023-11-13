@@ -1,7 +1,7 @@
-function Screen(){
+function Screen({ displayedLetters,isRed }){
     return(
-        <div className="screen">
-           
+        <div className="screen" style={ isRed ? {color:'red'} : null}>
+           { displayedLetters }
         </div>
     )
 }   
