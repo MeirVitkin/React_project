@@ -7,10 +7,9 @@ import { useState } from "react";
   
    
 function App2() {
-    const dash ='_'; 
-    const [displayedLetters, setDisplayedLetters] = useState(dash);
+    const [displayedLetters, setDisplayedLetters] = useState('');
     const showLetter = (letter) => {
-        setDisplayedLetters(displayedLetters.slice(0, -1) + letter + dash);
+        setDisplayedLetters(displayedLetters + letter);
     };
 
     const [isRed, setIsRed] = useState(false);
