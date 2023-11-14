@@ -1,0 +1,30 @@
+.buttonsContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    height: 150px;
+    
+}
+
+.playerButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+    border-radius: 50%;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100px;
+    height: 100px;
+}
+.gameContainer{
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(2,300px);
+}
+.player{
+    width: 300px;
+    height: 350px;
+    
+    background-color: rgb(60, 197, 127);
+}
