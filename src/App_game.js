@@ -5,6 +5,7 @@ import Gamer from './component/Gamer';
 const App_game = () => {
 
     const [board, setBoard] = useState([]);
+    const [correntPlayer, setCorrentPlayer] = useState(0);
 
     return (
         <>
@@ -15,7 +16,13 @@ const App_game = () => {
             <div className='gameContainer'>
                 {board.map((player, index) => (
                     <div className='player' key={index}>
-                        <Gamer key={index} player={player} />
+                        <Gamer idplayer={index}
+                            player={player}
+                            correntPlayer={correntPlayer}
+                            setCorrentPlayer={setCorrentPlayer}
+                            board={board}
+                            setBoard={setBoard}
+                        />
                     </div>
                 ))}
             </div>
