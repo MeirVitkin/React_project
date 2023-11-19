@@ -5,22 +5,26 @@ let players = [
     {
         name: 'meir',
         scores: 0,
-        myTurn: 'true'
+        myTurn: 'true',
+        id:0
     },
     {
         name: 'moshe',
         scores: 0,
-        myTurn: 'false'
+        myTurn: 'false',
+        id:1
     },
     {
         name: 'roni',
         scores: 0,
-        myTurn: 'false'
+        myTurn: 'false',
+        id:2
     },
     {
         name: 'yoni',
         scores: 0,
-        myTurn: 'false'
+        myTurn: 'false',
+        id:3
     },
 ]
 

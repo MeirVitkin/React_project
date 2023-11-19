@@ -7,9 +7,10 @@ import { useState } from "react";
   
    
 function App2() {
-    const [displayedLetters, setDisplayedLetters] = useState('');
+    const [displayedLetters, setDisplayedLetters] = useState([]);
     const showLetter = (letter) => {
-        setDisplayedLetters(displayedLetters + letter);
+        const modifiedLetter = letter.replace(/ /g, '\u00A0');
+        setDisplayedLetters(prevLetters => [...prevLetters, <div className={ isRed ? 'red' : 'black'}>{ modifiedLetter }</div>]);
     };
 
     const [isRed, setIsRed] = useState(false);

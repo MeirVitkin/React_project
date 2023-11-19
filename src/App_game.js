@@ -1,27 +1,29 @@
 import React, { useState } from 'react'
-import PlayerButtons from './component/PlayerButtons'
 import Gamer from './component/Gamer';
+import SubmitButton from './SubmitButton';
 
 const App_game = () => {
 
-    const [board, setBoard] = useState([]);
-    const [correntPlayer, setCorrentPlayer] = useState(0);
+    const [playersArray, setPlayersArray] = useState([]);
+
+    const updatePlayersArray = (newPlayer) => {
+        setPlayersArray(prevArrey => [...prevArrey, newPlayer]);
+    };
+
+    const removePlayersArray = (index) => {
+        setPlayersArray(prevBoard => prevBoard.splice(index, 1));
+    };
 
     return (
         <>
-            <PlayerButtons
-                board={board}
-                setBoard={setBoard}
-            />
+            <SubmitButton updatePlayersArray={updatePlayersArray} />
             <div className='gameContainer'>
-                {board.map((player, index) => (
+                {playersArray.map((player, index) => (
                     <div className='player' key={index}>
                         <Gamer idplayer={index}
                             player={player}
-                            correntPlayer={correntPlayer}
-                            setCorrentPlayer={setCorrentPlayer}
-                            board={board}
-                            setBoard={setBoard}
+                            board={playersArray}
+                            removePlayersArray={removePlayersArray}
                         />
                     </div>
                 ))}
