@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import PlayerList from './PlayerList';
 
-const SubmitButton = ({ updatePlayersArray }) => {
+const SubmitButton = ({ updatePlayersArray, setPlayersParseArray, playersParseArray }) => {
     const [playerName, setPlayerName] = useState('');
     const [playersArray, setPlayersArray] = useState([]);
     const [isInputVisible, setIsInputVisible] = useState(true);
@@ -17,8 +18,6 @@ const SubmitButton = ({ updatePlayersArray }) => {
     const handleButtonClick = () => {
         setIsInputVisible(false);
 
-        const playersParseArray = JSON.parse(localStorage.getItem('players')) || [];
-
         playersArray.forEach((playerName) => {
             const existingPlayer = playersParseArray.find((player) => player.name === playerName);
 
@@ -29,8 +28,7 @@ const SubmitButton = ({ updatePlayersArray }) => {
                     myTurn: true,
                     id: playersParseArray.length
                 };
-
-                playersParseArray.push(newPlayer);
+                setPlayersParseArray(prevArrey => [...prevArrey, newPlayer]);                // playersParseArray.push(newPlayer);
 
                 localStorage.setItem('players', JSON.stringify(playersParseArray));
 
@@ -45,6 +43,7 @@ const SubmitButton = ({ updatePlayersArray }) => {
 
     return (
         <div>
+            <PlayerList players ={playersParseArray}/>
             {isInputVisible && (
                 <div className='registerContainer'>
                     <input className='input'
@@ -55,8 +54,11 @@ const SubmitButton = ({ updatePlayersArray }) => {
                     />
                     <button className='submitButton' onClick={handleSubmitClick}>Submit</button>
                     <div className='startTheGame' onClick={handleButtonClick}>
-                        Start the game
+                        {playersArray.length > 0 ? (
+                            <span>Start the game</span>
+                        ) : null}
                     </div>
+
                     <div className='prevShowContainer'>
                         {playersArray.map((name, index) => (
                             <h3 className='prevShow' key={index}>{name}</h3>

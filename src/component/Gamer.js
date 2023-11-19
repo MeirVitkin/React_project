@@ -6,13 +6,13 @@ let gameFinifhed = false;
 
 
 
-const Gamer = ({ player, idplayer, board, removePlayersArray }) => {
+const Gamer = ({ player, idplayer, board, removePlayersArray, updateLocalStorage,storage }) => {
 
-    const [playersParseArray, setPlayersParseArray] = useState([]);
     let rnd = Math.floor(Math.random() * 100);
 
     const [rndNum, setRndNum] = useState(rnd);
     const [steps, setSteps] = useState(0);
+    const [winnings, setWinngs] = useState(player.scores);
 
     const setCorrent = (player) => {
         finshedPlyearsIndex.push(player)
@@ -20,19 +20,8 @@ const Gamer = ({ player, idplayer, board, removePlayersArray }) => {
 
     let theBoardLength = board.length;
 
-    useEffect(() => {
-        const storedPlayers = JSON.parse(localStorage.getItem('players')) || [];
-        setPlayersParseArray(storedPlayers);
-    }, []);
-    const playerToUpdateIndex = playersParseArray.findIndex((p) => p.name === player.name);
+    const playerToUpdateIndex = storage.findIndex((p) => p.name === player.name);
     console.log(playerToUpdateIndex);
-    console.log(playersParseArray);
-
-
-
-
-
-
 
     for (let i = 0; i < theBoardLength; i++) {
         for (let j = 0; j < finshedPlyearsIndex.length; j++) {
@@ -52,6 +41,8 @@ const Gamer = ({ player, idplayer, board, removePlayersArray }) => {
             <h3>your corrent number = {rndNum}</h3>
             <h2>{rndNum === 100 ? 'you finished!' : null}</h2>
             <h3>steps = {steps}</h3>
+
+
 
             <div className='mathButtonsContainer'>
                 {rndNum !== 100 ? (
@@ -96,23 +87,23 @@ const Gamer = ({ player, idplayer, board, removePlayersArray }) => {
                     </>
                 ) : (
                     <>
-                        {
-
-                            playersParseArray[playerToUpdateIndex].scores.push(steps)
-                        }
-
+                        { setCorrent(idplayer) }
                         <h3>{steps} steps</h3>
                         {!gameFinifhed ? (
                             <>
-                                {setCorrent(idplayer)}
                                 <button onClick={() => {
-                                    removePlayersArray(idplayer);
+                                    updateLocalStorage(playerToUpdateIndex, steps) 
+                                    // removePlayersArray(idplayer)
+
                                 }}>quit</button>
 
                                 <button>new game</button><br />
                             </>
                         ) : null}
                     </>)}
+                        <h4>scores:{winnings.map((winn, index) => (
+                            <p className='p' key={index}>{winn}  </p>
+                        ))}</h4>
             </div>
         </div>
     )
