@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const PlayerList = ({ players }) => {
+const Average = ({ players }) => {
   
   const playersWithAverage = players.map(player => {
   const average = (player.scores.reduce((sum, score) => sum + score, 0) / player.scores.length).toFixed(2);
@@ -22,4 +22,4 @@ const PlayerList = ({ players }) => {
   );
 };
 
-export default PlayerList;
+export default Average;

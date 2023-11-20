@@ -5,9 +5,7 @@ let corrent = 0;
 let gameFinifhed = false;
 let playerToUpdateIndexToLocalStorage =[]; 
 
-
-
-const Gamer = ({ player, idplayer, board, removePlayersArray, updateLocalStorage,storage }) => {
+const Gamer = ({ player, idplayer, board, removePlayersArray, updateLocalStorage,storage,setIsInputVisible }) => {
 
     let rnd = Math.floor(Math.random() * 100);
 
@@ -96,15 +94,17 @@ const Gamer = ({ player, idplayer, board, removePlayersArray, updateLocalStorage
                         <h3>{steps} steps</h3>
                         {!gameFinifhed ? (
                             <>
-                            <div className='quitButton'>
-                                <button onClick={() => {
-                                    updateLocalStorage(playerToUpdateIndexToLocalStorage) 
+                             
+                                <button className='quitButton' onClick={() => {
+                                    updateLocalStorage(playerToUpdateIndexToLocalStorage)
+                                    removePlayersArray() 
+                                    setIsInputVisible(true)
                                 }}>quit</button>
-                                </div>
+                                
                             </>
                         ) : null}
                     </>)}
-                        <h4>scores:{winnings.map((winn, index) => (
+                        <h4>scores: {winnings.map((winn, index) => (
                             <div className='win' key={index}>{winn}  </div>
                         ))}</h4>
             </div>

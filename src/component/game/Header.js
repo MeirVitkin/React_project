@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import PlayerList from './PlayerList';
+import Average from './Average';
 
-const SubmitButton = ({ updatePlayersArray, setPlayersParseArray, playersParseArray }) => {
+const Header = ({ updatePlayersArray, setPlayersParseArray, playersParseArray,isInputVisible,setIsInputVisible }) => {
     const [playerName, setPlayerName] = useState('');
     const [playersArray, setPlayersArray] = useState([]);
-    const [isInputVisible, setIsInputVisible] = useState(true);
     const handleSubmitClick = () => {
         setPlayersArray([...playersArray, playerName]);
         setPlayerName('');
@@ -36,11 +35,12 @@ const SubmitButton = ({ updatePlayersArray, setPlayersParseArray, playersParseAr
                 updatePlayersArray(existingPlayer);
             }
         });
+        setPlayersArray([])
     };
 
     return (
         <div>
-            <PlayerList players ={playersParseArray}/>
+            <Average players ={playersParseArray}/>
             {isInputVisible && (
                 <div className='registerContainer'>
                     <input className='input'
@@ -49,10 +49,12 @@ const SubmitButton = ({ updatePlayersArray, setPlayersParseArray, playersParseAr
                         value={playerName}
                         onChange={handleNameChange}
                     />
+
                     <button className='submitButton' onClick={handleSubmitClick}>Submit</button>
-                    <div className='startTheGame' onClick={handleButtonClick}>
+                    <br></br>
+                    <div  onClick={handleButtonClick}>
                         {playersArray.length > 0 ? (
-                            <span>Start the game</span>
+                            <span className='startTheGame'>Start the game</span>
                         ) : null}
                     </div>
 
@@ -70,4 +72,4 @@ const SubmitButton = ({ updatePlayersArray, setPlayersParseArray, playersParseAr
     );
 };
 
-export default SubmitButton;
+export default Header;

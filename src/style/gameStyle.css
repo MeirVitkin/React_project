@@ -1,5 +1,27 @@
+.swichContainer{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    
+
+}
+
+.enterButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    background-color: rgb(141, 219, 247);
+    border-radius: 5%;
+}
 body {
     background-color: rgb(1, 65, 65);
+}
+
+header {
+    background-color: rgb(141, 219, 247);
+    padding: 40px;
 }
 
 .buttonsContainer {
@@ -15,7 +37,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: aquamarine;
+    background-color: rgb(108, 184, 212);
     border-radius: 50%;
     font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
@@ -30,15 +52,17 @@ body {
     grid-template-columns: repeat(2, 300px);
     justify-content: center;
     align-items: center;
+    
 }
 
 .player {
+    margin-top: 40px;
     width: 300px;
     height: 400px;
     border: 0.5px solid;
-    border-color: rgb(167, 165, 165);
+    border-color: rgb(180, 178, 178);
     border-radius: 5%;
-    background-color: rgb(171, 219, 238);
+    background-color: rgb(143, 218, 245);
     font-family: Arial, Helvetica, sans-serif;
     font-size: large;
     text-align: center;
@@ -53,25 +77,31 @@ body {
     height: 30px;
     border-radius: 15%;
     margin: 4px;
+    background-color: rgb(1, 65, 65);
+    color: aliceblue;
+    cursor: pointer;
+    margin-top: 30px;
 }
 
 .prevShowContainer {
     display: flex;
     justify-content: center;
     align-items: center;
+}
 
-
+.prevShowContainer h3 {
+    font-size: 50px;
 }
 
 .prevShow {
     text-align: center;
-    width: 180px;
-    height: 120px;
+    width: 250px;
+    height: 150px;
     border: 0.5px solid rgb(162, 159, 159);
     font-size: 40px;
     font-family: Arial, Helvetica, sans-serif;
     margin: 10px;
-    background-color: rgb(186, 238, 186);
+    background-color: rgb(143, 218, 245);
     border-radius: 5%;
 }
 
@@ -80,7 +110,6 @@ body {
     height: 45px;
     font-size: large;
     padding-left: 10px;
-
 }
 
 .registerContainer {
@@ -88,43 +117,49 @@ body {
     text-align: center;
     margin-top: 50px;
     margin-bottom: 40px;
-
 }
 
 .submitButton {
+    font-size: 17px;
     width: 90px;
-    height: 50px;
-    font-size: large;
+    height: 54px;
     padding-left: 10px;
     cursor: pointer;
-    background-color: rgb(186, 238, 186);
+    background-color: rgb(143, 218, 245);
     border: 1px solid;
-    border-color: rgb(59, 123, 59);
     color: rgb(95, 94, 94);
 }
 
+.submitButton:hover {
+    background-color: rgb(177, 174, 174);
+    color: rgb(143, 218, 245);
+}
+
 .startTheGame {
-    display: block;
+    display: inline-block;
     font-size: larger;
     font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
+    /* width: 200px;
+    height: 50px; */
     font-size: 30px;
     margin: 50px 0px 50px 0px;
-    color: rgb(73, 72, 72);
+    color: rgb(125, 124, 124);
+    background-color: rgb(143, 218, 245);
+    padding: 20px;
+    border-radius: 5%;
 }
 
 .startTheGame:hover {
     font-size: 32px;
-    color: rgb(125, 168, 125);
-
 }
 
 .theAvarageHeader {
-    border-bottom: 4px solid black;
+    border-bottom: 4px solid rgb(72, 83, 87);
     display: inline;
     font-weight: 900;
     font-family: Arial, Helvetica, sans-serif;
-    color: rgb(102, 100, 100);
+    color: rgb(109, 158, 176);
 }
 
 .p {
@@ -133,6 +168,8 @@ body {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: xx-large;
+    margin: 10px;
+    color: rgb(26, 77, 103);
 }
 
 .myTurn {
@@ -141,19 +178,30 @@ body {
 }
 
 h3 {
-    color: rgb(66, 65, 65);
+    color: rgb(1, 65, 65);
     padding-top: 5px;
 }
 
 h3 p {
     margin: 20px;
-    color: rgb(95, 94, 94);
+    color: rgb(1, 65, 65);
     font-size: 30px;
 }
-.win{
+
+.win {
     display: inline;
 }
 
 .quitButton {
-   color: #000; 
+    width: 80px;
+    height: 30px;
+    border: 0.5px solid rgb(180, 178, 178);
+    border-radius: 8%;
+    background-color: rgb(1, 65, 65);
+    color: whitesmoke;
+}
+
+.quitButton:hover {
+    background-color: rgb(124, 152, 152);;
+    color: rgb(1, 65, 65);
 }

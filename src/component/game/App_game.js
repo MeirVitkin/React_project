@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Gamer from './component/Gamer';
-import SubmitButton from './SubmitButton';
+import Gamer from './Gamer';
+import Header from './Header';
 const players = [
     
     {
@@ -38,7 +38,8 @@ if(storage ==null){
 const App_game = () => {
 
     const [playersParseArray, setPlayersParseArray] = useState(JSON.parse(localStorage.getItem('players'))) || [];
-    
+    const [finishGame,setFinishedGame] = useState(false);
+    const [isInputVisible, setIsInputVisible] = useState(true);
 
     const [playersArray, setPlayersArray] = useState([]);
 
@@ -47,8 +48,8 @@ const App_game = () => {
         setPlayersArray(prevArrey => [...prevArrey, newPlayer]);
     };
 
-    const removePlayersArray = (index) => {
-        setPlayersArray(prevBoard => prevBoard.splice(index, 1));
+    const removePlayersArray = () => {
+        setPlayersArray(prevBoard => prevBoard =[]);
     };
     const updateLocalStorage = (obj) => {
         console.log(obj);
@@ -71,11 +72,16 @@ const App_game = () => {
 
     return (
         <>
-            <SubmitButton updatePlayersArray={updatePlayersArray}
+            <Header updatePlayersArray={updatePlayersArray}
                           setPlayersParseArray={setPlayersParseArray}
                           playersParseArray={playersParseArray}
-             />
+                          isInputVisible={isInputVisible}
+                          setIsInputVisible={setIsInputVisible}
+                          />
             <div className='gameContainer'>
+                <div>
+
+                </div>
                 {playersArray.map((player, index) => (
                     <div className='player' key={index}>
                         <Gamer idplayer={index}
@@ -84,6 +90,7 @@ const App_game = () => {
                             removePlayersArray={removePlayersArray}
                             updateLocalStorage ={updateLocalStorage}
                             storage ={playersParseArray}
+                            setIsInputVisible={setIsInputVisible}
                         />
                     </div>
                 ))}

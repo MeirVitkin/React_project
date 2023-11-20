@@ -1,12 +1,12 @@
-import Computer from "./component/computer";
-import Keyboard from "./component/keyboard";
-import Screen from "./component/csreen";
+import Computer from "./computer";
+import Keyboard from "./keyboard";
+import Screen from "./csreen";
 import { useState } from "react";
 
 
   
    
-function App2() {
+function AppComputer() {
     const [displayedLetters, setDisplayedLetters] = useState([]);
     const showLetter = (letter) => {
         const modifiedLetter = letter.replace(/ /g, '\u00A0');
@@ -47,4 +47,4 @@ function App2() {
         </>
     )
 }
-export default App2;
+export default AppComputer;
