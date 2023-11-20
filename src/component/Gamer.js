@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 
 let finshedPlyearsIndex = [];
 let corrent = 0;
@@ -102,7 +102,7 @@ const Gamer = ({ player, idplayer, board, removePlayersArray, updateLocalStorage
                         ) : null}
                     </>)}
                         <h4>scores:{winnings.map((winn, index) => (
-                            <p className='p' key={index}>{winn}  </p>
+                            <div className='win' key={index}>{winn}  </div>
                         ))}</h4>
             </div>
         </div>

@@ -1,5 +1,6 @@
 body {
     background-color: rgb(196, 229, 229);
+
 }
 
 .buttonsContainer {
@@ -27,7 +28,7 @@ body {
 .gameContainer {
     display: flex;
     gap: 30px;
-    grid-template-columns: repeat(2,300px);
+    grid-template-columns: repeat(2, 300px);
     justify-content: center;
     align-items: center;
 }
@@ -43,7 +44,10 @@ body {
     overflow: auto;
 }
 
-.plus, .minus, .multiply, .division {
+.plus,
+.minus,
+.multiply,
+.division {
     width: 50px;
     height: 30px;
     border-radius: 15%;
@@ -54,38 +58,97 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+
+
 }
 
 .prevShow {
     text-align: center;
-    width: 100px;
-    height: 70px;
-    border: 1px solid black;
-}
-
-.registerContainer {
-    display: flex;
-    position: relative;
+    width: 180px;
+    height: 120px;
+    border: 0.5px solid rgb(162, 159, 159);
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 10px;
+    background-color: rgb(186, 238, 186);
+    border-radius: 5%;
 }
 
 .input {
     width: 190px;
     height: 45px;
     font-size: large;
+    padding-left: 10px;
+
+}
+
+.registerContainer {
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 40px;
+
 }
 
 .submitButton {
-    
+    width: 90px;
+    height: 50px;
+    font-size: large;
+    padding-left: 10px;
+    cursor: pointer;
+    background-color: rgb(186, 238, 186);
+    border: 1px solid;
+    border-color: rgb(59, 123, 59);
+    color: rgb(95, 94, 94);
 }
 
 .startTheGame {
-    position: absolute;
-    right: 30px;
-    border: 3px solid black;
-    display: inline-block;
+    display: block;
     font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    font-size: 30px;
+    margin: 50px 0px 50px 0px;
+    color: rgb(73, 72, 72);
+}
+
+.startTheGame:hover {
+    font-size: 32px;
+    color: rgb(125, 168, 125);
 
 }
-.p{
+
+.theAvarageHeader {
+    border-bottom: 4px solid black;
+    display: inline;
+    font-weight: 900;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(102, 100, 100);
+}
+
+.p {
+    display: block;
+    font-size: larger;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: xx-large;
+}
+
+.myTurn {
+    color: rgb(161, 245, 245);
+    font-size: 25px;
+}
+
+h3 {
+    color: rgb(66, 65, 65);
+    padding-top: 5px;
+}
+
+h3 p {
+    margin: 20px;
+    color: rgb(95, 94, 94);
+    font-size: 30px;
+}
+.win{
     display: inline;
 }

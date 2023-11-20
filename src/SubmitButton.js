@@ -5,7 +5,6 @@ const SubmitButton = ({ updatePlayersArray, setPlayersParseArray, playersParseAr
     const [playerName, setPlayerName] = useState('');
     const [playersArray, setPlayersArray] = useState([]);
     const [isInputVisible, setIsInputVisible] = useState(true);
-
     const handleSubmitClick = () => {
         setPlayersArray([...playersArray, playerName]);
         setPlayerName('');
@@ -28,9 +27,7 @@ const SubmitButton = ({ updatePlayersArray, setPlayersParseArray, playersParseAr
                     myTurn: true,
                     id: playersParseArray.length
                 };
-                setPlayersParseArray(prevArrey => [...prevArrey, newPlayer]);                // playersParseArray.push(newPlayer);
-
-                localStorage.setItem('players', JSON.stringify(playersParseArray));
+                setPlayersParseArray(prevArrey => [...prevArrey, newPlayer]);            
 
                 updatePlayersArray(newPlayer);
 
@@ -61,7 +58,9 @@ const SubmitButton = ({ updatePlayersArray, setPlayersParseArray, playersParseAr
 
                     <div className='prevShowContainer'>
                         {playersArray.map((name, index) => (
-                            <h3 className='prevShow' key={index}>{name}</h3>
+                            <h3 className='prevShow' key={index}>{name}
+                                <p>welcome</p>
+                            </h3>
                         ))}
                     </div>
                 </div>

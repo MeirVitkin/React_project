@@ -1,27 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const PlayerList = ({players}) => {
+const PlayerList = ({ players }) => {
   
-  // Step 1: Calculate Average
   const playersWithAverage = players.map(player => {
-    const average = player.scores.reduce((sum, score) => sum + score, 0) / player.scores.length;
-    return { ...player, average };
+  const average = (player.scores.reduce((sum, score) => sum + score, 0) / player.scores.length).toFixed(2);
+  
+    return { ...player, average: Number(average) };
   });
 
-  // Step 2: Find Top 3
-  const top3Players = playersWithAverage
-    .sort((a, b) => b.average - a.average) // Sort in descending order
-    .slice(0, 3); // Take the top 3
-
+  const bottom3Players = playersWithAverage
+    .sort((a, b) => a.average - b.average)
+    .slice(0, 3);
+  
   return (
-    <div>
-      <h2 className='p'>Top 3 Players: </h2>
-      
-        {top3Players.map((player, index) => (
-          <p className='p' key={index}>{player.name} - Average: {player.average} </p>
-        ))}
-      
-    </div>
+    <header className='p'>
+      <h3 className='theAvarageHeader'>Top 3 :</h3>
+      {bottom3Players.map((player, index) => (
+        <p className='p' key={index}>{player.name} - Average: {player.average} </p>
+      ))}
+    </header>
   );
 };
 
