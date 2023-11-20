@@ -28,8 +28,8 @@ const players = [
         id:3
     },
 ]
-const storage = (JSON.parse(localStorage.getItem('players'))) || []
-if(storage ==[]){
+const storage = (JSON.parse(localStorage.getItem('players'))) 
+if(storage ==null){
 
     localStorage.setItem('players', JSON.stringify(players));
 }
@@ -50,14 +50,23 @@ const App_game = () => {
     const removePlayersArray = (index) => {
         setPlayersArray(prevBoard => prevBoard.splice(index, 1));
     };
-    const updateLocalStorage = (index, steps) => {
+    const updateLocalStorage = (obj) => {
+        console.log(obj);
         const updatedPlayersArray = [...playersParseArray];
-        updatedPlayersArray[index].scores.push(steps);
+    
+        obj.forEach((player) => {
+            const { index, steps } = player;
+    
+            if (!updatedPlayersArray[index].scores.includes(steps)) {
+                updatedPlayersArray[index].scores.push(steps);
+            }
+        });
     
         setPlayersParseArray(updatedPlayersArray);
     
         localStorage.setItem('players', JSON.stringify(updatedPlayersArray));
     };
+    
     
 
     return (

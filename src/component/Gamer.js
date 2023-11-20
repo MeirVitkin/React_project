@@ -3,6 +3,7 @@ import React, { useState} from 'react';
 let finshedPlyearsIndex = [];
 let corrent = 0;
 let gameFinifhed = false;
+let playerToUpdateIndexToLocalStorage =[]; 
 
 
 
@@ -16,6 +17,9 @@ const Gamer = ({ player, idplayer, board, removePlayersArray, updateLocalStorage
 
     const setCorrent = (player) => {
         finshedPlyearsIndex.push(player)
+    };
+    const setPlayersToUpdate = (player) => {
+        playerToUpdateIndexToLocalStorage.push(player)
     };
 
     let theBoardLength = board.length;
@@ -88,16 +92,15 @@ const Gamer = ({ player, idplayer, board, removePlayersArray, updateLocalStorage
                 ) : (
                     <>
                         { setCorrent(idplayer) }
+                        {setPlayersToUpdate({index:playerToUpdateIndex,steps:steps})}
                         <h3>{steps} steps</h3>
                         {!gameFinifhed ? (
                             <>
+                            <div className='quitButton'>
                                 <button onClick={() => {
-                                    updateLocalStorage(playerToUpdateIndex, steps) 
-                                    // removePlayersArray(idplayer)
-
+                                    updateLocalStorage(playerToUpdateIndexToLocalStorage) 
                                 }}>quit</button>
-
-                                <button>new game</button><br />
+                                </div>
                             </>
                         ) : null}
                     </>)}
