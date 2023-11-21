@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import Average from './Average';
 
-const Header = ({ updatePlayersArray, setPlayersParseArray, playersParseArray,isInputVisible,setIsInputVisible }) => {
+const Header = ({ updatePlayersArray, setPlayersParseArray, playersParseArray, isInputVisible, setIsInputVisible }) => {
+
     const [playerName, setPlayerName] = useState('');
     const [playersArray, setPlayersArray] = useState([]);
+
     const handleSubmitClick = () => {
         setPlayersArray([...playersArray, playerName]);
         setPlayerName('');
@@ -17,6 +19,7 @@ const Header = ({ updatePlayersArray, setPlayersParseArray, playersParseArray,is
         setIsInputVisible(false);
 
         playersArray.forEach((playerName) => {
+
             const existingPlayer = playersParseArray.find((player) => player.name === playerName);
 
             if (!existingPlayer) {
@@ -26,7 +29,7 @@ const Header = ({ updatePlayersArray, setPlayersParseArray, playersParseArray,is
                     myTurn: true,
                     id: playersParseArray.length
                 };
-                setPlayersParseArray(prevArrey => [...prevArrey, newPlayer]);            
+                setPlayersParseArray(prevArrey => [...prevArrey, newPlayer]);
 
                 updatePlayersArray(newPlayer);
 
@@ -40,7 +43,7 @@ const Header = ({ updatePlayersArray, setPlayersParseArray, playersParseArray,is
 
     return (
         <div>
-            <Average players ={playersParseArray}/>
+            <Average players={playersParseArray} />
             {isInputVisible && (
                 <div className='registerContainer'>
                     <input className='input'
@@ -52,7 +55,7 @@ const Header = ({ updatePlayersArray, setPlayersParseArray, playersParseArray,is
 
                     <button className='submitButton' onClick={handleSubmitClick}>Submit</button>
                     <br></br>
-                    <div  onClick={handleButtonClick}>
+                    <div onClick={handleButtonClick}>
                         {playersArray.length > 0 ? (
                             <span className='startTheGame'>Start the game</span>
                         ) : null}
@@ -66,7 +69,6 @@ const Header = ({ updatePlayersArray, setPlayersParseArray, playersParseArray,is
                         ))}
                     </div>
                 </div>
-
             )}
         </div>
     );

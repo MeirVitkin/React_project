@@ -1,7 +1,4 @@
 import React from 'react'
-import CreatePlayer from './CreatePlayer'
-
-
 
 const PlayerButtons = ({ board, setBoard }) => {
 
