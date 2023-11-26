@@ -1,6 +1,6 @@
 import Computer from "./computer";
 import Keyboard from "./keyboard";
-import Screen from "./csreen";
+import Screen from "./Screen";
 import { useState } from "react";
 
 function AppComputer() {
@@ -43,11 +43,11 @@ function AppComputer() {
     return (
         <>
             <Computer
-                child1={<Screen
+                Screen={<Screen
                     displayedLetters={displayedLetters}
                     isRed={isRed}
                 />}
-                child2={<Keyboard
+                Keyboard={<Keyboard
                     showLetter={showLetter}
                     deleteLastLetter={deleteLastLetter}
                     clearScreen={clearScreen}

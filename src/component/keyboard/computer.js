@@ -1,10 +1,10 @@
 
-function Computer({child1, child2}){
+function Computer({Screen, Keyboard}){
    
         return(
         <main>
-            {child1}
-            {child2}
+            {Screen}
+            {Keyboard}
         </main>
     )
 }
